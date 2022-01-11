@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image x:Name="image" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+
     </Grid>
 </Window>
