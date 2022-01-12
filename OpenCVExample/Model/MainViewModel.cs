@@ -1,4 +1,5 @@
 ﻿using OpenCvSharp;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -13,16 +14,44 @@ namespace OpenCVExample.Model
         const int frameWidth = 640;
         const int frameHeight = 480;
         bool loop = false;
-
+        private readonly VideoCapture capture;
 
         public MainViewModel()
         {
-            
+            capture = new VideoCapture();
         }
 
         public void WindowLoad()
         {
+            capture.Open(0, VideoCaptureAPIs.ANY);
+            if (!capture.IsOpened())
+            {
 
+                return;
+            }
+            //창 연결
+            //ClientSize = new System.Drawing.Size(capture.FrameWidth, capture.FrameHeight); BackgroundWorker.RunWorkerAsync();
+
+        }
+
+        private void CloseForm()
+        {
+            //backgroundWorker1.CancelAsync(); 
+            //capture.Dispose();
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //var bgWorker = (BackgroundWorker)sender;
+            //while (!bgWorker.CancellationPending)
+            //{
+            //    using (var frameMat = capture.RetrieveMat())
+            //    {
+            //        var frameBitmap = BitmapConverter.ToBitmap(frameMat); bgWorker.ReportProgress(0, frameBitmap);
+            //    }
+            //    Thread.Sleep(100);
+            //}
         }
 
         public bool initWebCamera()
