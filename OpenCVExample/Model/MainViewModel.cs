@@ -29,13 +29,15 @@ namespace OpenCVExample.Model
         {
             try
             {
-                cap = VideoCapture.FromCamera(CaptureDevice.Any, 0);
-                cap.FrameWidth = frameWidth;
-                cap.FrameHeight = frameHeight;
-                cap.Open(0);
-                wb = new WriteableBitmap(cap.FrameWidth, cap.FrameHeight, 96, 96, PixelFormats.Bgr24, null);
-                Image.Source = wb;
+                Mat src = new Mat("lenna.png", ImreadModes.Grayscale);
+                Mat dst = new Mat();
 
+                Cv2.Canny(src, dst, 50, 200);
+                using (new Window("src image", src))
+                using (new Window("dst image", dst))
+                {
+                    Cv2.WaitKey();
+                }
                 return true;
             }
             catch
