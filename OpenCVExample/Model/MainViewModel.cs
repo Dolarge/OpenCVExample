@@ -15,7 +15,7 @@ namespace OpenCVExample.Model
         const int frameHeight = 480;
         bool loop = false;
         private readonly VideoCapture capture;
-
+        //https://rudalskim.tistory.com/254
         public MainViewModel()
         {
             capture = new VideoCapture();
