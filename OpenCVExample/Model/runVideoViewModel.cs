@@ -23,6 +23,9 @@ namespace OpenCVExample.Model
                 Cv2.ImShow("frame", frame);
                 //특정 시간만큼 대기
                 Cv2.WaitKey(33);
+                //click event 대기시에
+                //원하는 이벤트 개발
+
             }
 
             frame.Dispose();
